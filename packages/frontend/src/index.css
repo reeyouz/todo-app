@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  * {
+    @apply text-sm;
+  }
+  .btn {
+    @apply text-white rounded-md bg-blue-600 py-2 px-4 hover:bg-blue-800;
+  }
+  .nav {
+    @apply p-2 max-h-20 bg-blue-300 shadow-md;
+  }
+}

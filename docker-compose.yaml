@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  # backend:
+  #   build: "./packages/backend"
+  #   container_name: backend
+  #   environment:
+  #     - APP_PORT=3000
+  #     - MONGO_DB_URI='mongodb://admin:secret123@localhost:27017'
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - "3000:3000"
+  database:
+    image: mongo
+    container_name: database
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret123
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  mongodata: {}
