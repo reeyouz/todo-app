@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/reeyouz/todo-app/issues"
   },
-  "homepage": "https://github.com/reeyouz/todo-app#readme"
+  "homepage": "https://github.com/reeyouz/todo-app#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
+    "react-redux": "^7.2.6"
+  },
+  "devDependencies": {
+    "@types/react-redux": "^7.1.22"
+  }
 }
