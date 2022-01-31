@@ -21,4 +21,7 @@
   .label {
     @apply text-gray-500;
   }
+  .todo {
+    @apply rounded-lg shadow-md p-3 text-gray-500;
+  }
 }

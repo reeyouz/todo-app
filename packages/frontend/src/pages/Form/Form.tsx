@@ -15,29 +15,42 @@ export function Form(props: FormProps) {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-2">
       <Flex col>
-        <Label>Title</Label>
-        <Input name="title" value={values.title} onChange={onChange} />
+        <Label htmlFor="title">Title</Label>
+        <Input
+          name="title"
+          id="title"
+          value={values.title}
+          onChange={onChange}
+        />
       </Flex>
       <Flex col>
-        <Label>Description</Label>
+        <Label htmlFor="description">Description</Label>
         <Textarea
           name="description"
+          id="description"
           value={values.description}
           onChange={onChange}
         />
       </Flex>
       <Flex col>
-        <Label>Due Date</Label>
-        <Date name="dueDate" value={values.dueDate} onChange={onChange} />
+        <Label htmlFor="dueDate">Due Date</Label>
+        <Date
+          role="textbox"
+          name="dueDate"
+          id="dueDate"
+          value={values.dueDate}
+          onChange={onChange}
+        />
       </Flex>
       <Flex col={false} className="items-center gap-2">
         <Radio
           name="isComplete"
+          id="isComplete"
           value={`${values.isComplete}`}
           checked={!!values.isComplete}
           onChange={onChange}
         />
-        <Label>Is Complete</Label>
+        <Label htmlFor="isComplete">Is Complete</Label>
       </Flex>
       <Button type="submit">Submit</Button>
     </form>

@@ -17,3 +17,9 @@ export function Flex(props: FlexProps) {
     </div>
   );
 }
+
+function Item(props: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
+  return <div {...props}></div>;
+}
+
+Flex.Item = Item;
