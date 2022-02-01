@@ -25,8 +25,8 @@ export class Application {
   }
 
   private configureMiddlewares() {
-    this.app.use(express.json());
-    this.app.use(express.urlencoded());
+    this.app.use(express.json({}));
+    this.app.use(express.urlencoded({}));
     this.app.use(this.requestLogger.bind(this));
   }
 

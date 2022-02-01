@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Todo API
+  description: REST API in NodeJS serving Todos
+  version: 1.0.0
+paths:
+  /api/todo:
+    put:
+      summary: Updates a record in the database. Adds it if not present.
+      responses:
+        200:
+          description: "No body returned. Just 200 OK"
+        500:
+          description: "No error returned. Just 500 OK"
+    get:
+      summary: Get all records
+      responses:
+        200:
+          description: "No body returned. Just 200 OK"
+        500:
+          description: "No body returned. Just 200 OK"
+  /api/todo/{id}:
+    get:
+    delete:

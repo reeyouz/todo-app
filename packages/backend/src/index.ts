@@ -4,6 +4,11 @@ import { TodoController, TodoService, TodoRepository } from "./use-cases";
 
 async function bootstrap() {
   const configService = new ConfigService();
+
+  if (!configService.isProd) {
+    require("dotenv").config();
+  }
+
   const loggerService = new LoggerService(configService);
   const databaseService = new DatabaseService(configService);
 
