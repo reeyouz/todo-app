@@ -4,6 +4,7 @@ import express, {
   Response,
   Application as ExpressApplication,
 } from "express";
+import cors from "cors";
 import { BaseController } from "./base";
 import { ConfigService, LoggerService } from "./shared";
 
@@ -25,6 +26,9 @@ export class Application {
   }
 
   private configureMiddlewares() {
+    if (!this.configService.isProd) {
+      this.app.use(cors());
+    }
     this.app.use(express.json({}));
     this.app.use(express.urlencoded({}));
     this.app.use(this.requestLogger.bind(this));
