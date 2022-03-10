@@ -4,9 +4,7 @@ WORKDIR /todo-app/backend
 
 COPY package.json .
 
-RUN npm install -g yarn
-
-RUN yarn install
+RUN npm install
 
 COPY . .
 

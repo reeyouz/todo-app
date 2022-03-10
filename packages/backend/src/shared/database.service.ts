@@ -3,7 +3,7 @@ import { ConfigService } from ".";
 import { BaseService } from "../base";
 
 export class DatabaseService extends BaseService {
-  private client: MongoClient;
+  private client!: MongoClient;
   public isConnected = false;
 
   constructor(public configService: ConfigService) {

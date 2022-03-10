@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { todosReducer } from "./todos/todos.slices";
+import { todoApi } from "./todos/todos.slices";
 
 export function getStore() {
   return configureStore({
     reducer: {
-      todos: todosReducer,
+      [todoApi.reducerPath]: todoApi.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(todoApi.middleware),
   });
 }
 

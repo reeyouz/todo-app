@@ -1,16 +1,23 @@
 import React, { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { Form } from "./Form";
 import { Todo } from "../../types/Todo";
-import { useDispatch } from "react-redux";
-import { putTodo, useAppDispatch } from "../../store";
+import { usePutTodoMutation } from "../../store";
+import { transformDate } from "../../utils";
 
 export type FormContainerProps = {
-  initialState: Todo;
+  initialState?: Todo;
 };
 export function FormContainer(props: FormContainerProps) {
-  const { initialState } = props;
-  const dispatch = useAppDispatch();
+  const {
+    initialState = {
+      title: "",
+      description: "",
+      dueDate: transformDate(new Date()),
+      isComplete: false,
+    },
+  } = props;
   const [values, setState] = useState<Todo>(initialState);
+  const [putTodoApi] = usePutTodoMutation();
   const onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (
     e
   ) => {
@@ -22,7 +29,8 @@ export function FormContainer(props: FormContainerProps) {
   };
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await dispatch(putTodo(values)).unwrap();
+    await putTodoApi(values);
+    // await dispatch(putTodo(values)).unwrap();
     setState(initialState);
   };
 
