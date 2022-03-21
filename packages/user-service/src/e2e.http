@@ -1,0 +1,22 @@
+### REGISTER
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+  "email": "arijit2345@gmail.com",
+  "password": "hakuna@123",
+  "name": "Arijit"
+}
+
+### LOGIN
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+  "email": "arijit2345@gmail.com",
+  "password": "hakuna@123"
+}
+
+###
+GET http://localhost:3000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjMwOGEwOGIyZGM1MTUxNmE2N2U2ZWYiLCJlbWFpbCI6ImFyaWppdDIzNDVAZ21haWwuY29tIiwiaWF0IjoxNjQ3ODQwMDI3LCJleHAiOjE2NDc4NDM2Mjd9.J9ghZYSNjZZHQMPeacM_ksXPB3AFxs7Z54hoPhbPhHU
