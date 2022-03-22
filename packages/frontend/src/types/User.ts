@@ -1,0 +1,17 @@
+export interface IUser {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+  createdOn: Date;
+}
+
+export interface UserCreated {
+  token: string;
+}
+
+export type Credentials = Pick<IUser, "email" | "password">;
+
+export type UserNoPassword = Omit<IUser, "password">;
+
+export type UserLogin = UserNoPassword & UserCreated;
